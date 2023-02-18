@@ -1,0 +1,16 @@
+
+    <div class="row mt-5">
+        <div *ngFor="let movie of trendingPeople"  class="col-md-2">
+            <a  [routerLink]="['/movieDetail',movie.id,movie.media_type ]"  class="text-decoration-none text-white">
+                <div class="item position-relative  ">
+                    <img class="w-100" [src]=" 'http://image.tmdb.org/t/p/w500/' +movie.profile_path" alt="">
+                    <h3 class="h6 my-2">{{movie.name}}</h3>
+                    <p *ngIf="movie.overview"  >{{movie.overview|watch:10}}</p>
+
+                    <div class="vote bg-info py-1 position-absolute top-0 end-0 text-white">{{movie.vote_average}}</div>
+                     </div>
+            </a>
+        </div>
+        
+        </div>
+        

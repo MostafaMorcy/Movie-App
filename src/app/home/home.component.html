@@ -1,0 +1,93 @@
+<div class="row mt-5 mb-3">
+  <owl-carousel-o [options]="customOptions">
+
+    <ng-container *ngFor="let slide of trendingMovies">
+      <ng-template carouselSlide>
+        <img [src]=" 'http://image.tmdb.org/t/p/w500/'   +slide.poster_path"  >
+      </ng-template>
+    </ng-container>
+
+  </owl-carousel-o>
+
+</div>
+
+
+
+
+<div class="row">
+<div class="col-md-4 d-flex align-items-center">
+   <div>
+    <div   class="border w-25 mb-3 mt-3"></div>
+    <h2 class="h5 "> Trending Movies <br>   To Watch  Right Now  </h2>
+    <p class="text-muted py-2">Most Watched Movies By the day</p>
+
+    <div   class="border w-100 mb-3"></div>
+   </div>
+
+</div>
+<div *ngFor="let movie of trendingMovies"  class="col-md-2">
+    <a  [routerLink]="['/movieDetail',movie.id,movie.media_type ]"  class="text-decoration-none text-white">
+        <div class="item position-relative  ">
+            <img class="w-100" [src]=" 'http://image.tmdb.org/t/p/w500/'   +movie.poster_path" alt="">
+            <h3 class="h6 my-2">{{movie.title}}</h3>
+<p *ngIf="movie.overview"  >{{movie.overview |watch:10}}</p>
+            <div class="vote bg-info py-1 position-absolute top-0 end-0 text-white">{{movie.vote_average}}</div>
+             </div>
+    </a>
+</div>
+
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4 d-flex align-items-center">
+       <div>
+        <div   class="border w-25 mb-3 mt-3"></div>
+        <h2 class="h5 "> Trending TV <br>   To Watch  Right Now  </h2>
+        <p class="text-muted py-2">Most Watched TV By the day</p>
+    
+        <div   class="border w-100 mb-3"></div>
+       </div>
+    
+    </div>
+    
+    <div *ngFor="let movie of trendingTv" class="col-md-2">
+        <a  [routerLink]="['/movieDetail',movie.id,movie.media_type ]"  class="text-decoration-none text-white">
+            <div class="item position-relative  ">
+                <img class="w-100" [src]=" 'http://image.tmdb.org/t/p/w500/'  +movie.poster_path" alt="">
+                <h3 class="h6 my-2">{{movie.name}}</h3>
+                <p *ngIf="movie.overview"  >{{movie.overview|watch:10}}</p>
+
+                <div class="vote bg-info py-1 position-absolute top-0 end-0 text-white">{{movie.vote_average}}</div>
+                 </div>
+        </a>
+    </div>
+    
+    </div>
+    
+
+    <div class="row mt-5">
+        <div class="col-md-4 d-flex align-items-center">
+           <div>
+            <div   class="border w-25 mb-3 mt-3"></div>
+            <h2 class="h5 "> Trending people <br>   To Watch  Right Now  </h2>
+            <p class="text-muted py-2">Most Watched people By the day</p>
+        
+            <div   class="border w-100 mb-3"></div>
+           </div>
+        
+        </div>
+        
+        <div *ngFor="let movie of trendingPeople"  class="col-md-2">
+            <a  [routerLink]="['/movieDetail',movie.id,movie.media_type ]"  class="text-decoration-none text-white">
+                <div class="item position-relative  ">
+                    <img class="w-100" [src]=" 'http://image.tmdb.org/t/p/w500/' +movie.profile_path" alt="">
+                    <h3 class="h6 my-2">{{movie.name}}</h3>
+                    <p *ngIf="movie.overview"  >{{movie.overview|watch:10}}</p>
+
+                    <div class="vote bg-info py-1 position-absolute top-0 end-0 text-white">{{movie.vote_average}}</div>
+                     </div>
+            </a>
+        </div>
+        
+        </div>
+        

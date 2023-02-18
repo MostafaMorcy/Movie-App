@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" ><img src="../../assets/logo-dark(1).webp" ></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a *ngIf="isLogin" class="nav-link" routerLink="home" routerLinkActive="active"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isLogin" class="nav-link" routerLink="about" routerLinkActive="active"
+            >About</a
+          >
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isLogin" class="nav-link" routerLink="movies" routerLinkActive="active"
+            >Movies</a
+          >
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isLogin"  class="nav-link" routerLink="tv" routerLinkActive="active">TV</a>
+        </li>
+        <li class="nav-item">
+          <a  *ngIf="isLogin" class="nav-link" routerLink="peoples" routerLinkActive="active"
+            >Peoples</a
+          >
+        </li>
+
+        <li *ngIf="isLogin"  class="nav-item dropdown">
+          <a class="nav-link text-white  dropdown-toggle" routerLink="settings" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            settings
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="settings/password">password</a></li>
+            <li><a class="dropdown-item" routerLink="settings/privacy">privacy</a></li>
+            <li><hr class="dropdown-divider"></li>
+          </ul>
+        </li>
+      </ul>
+
+   
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item d-flex align-items-center">
+          <span>
+            <i class="fa-brands fa-facebook m-2"></i>
+            <i class="fa-brands fa-google m-2"></i>
+            <i class="fa-brands fa-twitter m-2"></i>
+            <i class="fa-brands fa-instagram m-2"></i>
+          </span>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="!isLogin"  class="nav-link" routerLink="login" routerLinkActive="active"
+            >Login</a
+          >
+        </li>
+        <li class="nav-item">
+          <a  *ngIf="!isLogin" class="nav-link" routerLink="register" routerLinkActive="active"
+            >Register</a
+          >
+        </li>
+
+        
+        <li class="nav-item">
+          <a  *ngIf="isLogin" class="nav-link" routerLink="register" routerLinkActive="active"
+         (click)="signOut()"       >Logout</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

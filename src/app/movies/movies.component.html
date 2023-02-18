@@ -1,0 +1,25 @@
+<div class="row">
+
+    <nav aria-label="..." class="mt-3  " >
+        <ul class="pagination pagination-sm d-flex justify-content-center ">
+        
+          <li *ngFor="let item of pageItem" (click)="getPageItems(item)"   class="page-item bg-transparent"><a class="page-link cursor" >{{item}}</a></li>
+          <!-- <li class="page-item bg-transparent"><a class="page-link cursor" >2</a></li> -->
+        </ul>
+      </nav>
+
+<div class="col-md-12">
+    <input [(ngModel)]="searchKey"  type="text" class="form-control" placeholder="search by name"  >
+</div>
+<div *ngFor="let movie of trendingMovies | search : searchKey"  class="col-md-2">
+    <a  [routerLink]="['/movieDetail',movie.id,movie.media_type ]"  class="text-decoration-none text-white">
+        <div class="item position-relative  ">
+            <img class="w-100" [src]=" 'http://image.tmdb.org/t/p/w500/'   +movie.poster_path" alt="">
+            <h3 class="h6 my-2">{{movie.title}}</h3>
+<p *ngIf="movie.overview"  >{{movie.overview |watch:10}}</p>
+            <div class="vote bg-info py-1 position-absolute top-0 end-0 text-white">{{movie.vote_average}}</div>
+             </div>
+    </a>
+</div>
+
+</div> 
